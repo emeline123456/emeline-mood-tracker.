@@ -2,6 +2,15 @@
 import Greeting from "$lib/Greeting.svelte";
 import Entry from "$lib/Entry.svelte";
 import EntryModal from "$lib/EntryModal.svelte";
+
+import supabase from '$lib/db';
+    async function loginUser() {
+   	 const { error } = await supabase.auth.signIn({
+   		 email
+   	 });
+
+   	 if (error) alert(error.message); // alert if error
+    }
 </script>
 <Greeting />
 
@@ -18,6 +27,11 @@ import EntryModal from "$lib/EntryModal.svelte";
     	<Entry />
    	 
     </div>
+</section>
+
+<!-- Sign Out -->
+<section class="container px-4 py-3 text-center">
+    <button class="btn btn-secondary">Logout</button>
 </section>
 
 <EntryModal />
