@@ -11,7 +11,7 @@
    	 $session = supabase.auth.session(); // set session
    	 redirect();
 
-   	 supabase.auth.onAuthStateChange((event, userSession) => {
+   	 supabase.auth.onAuthStateChange((userSession) => {
    		 $session = userSession; // set session
    		 redirect();
    	 });
